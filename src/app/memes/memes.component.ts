@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { MemeService } from './../meme.service';
+import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-memes',
@@ -6,6 +8,19 @@ import { Component } from '@angular/core';
   templateUrl: './memes.component.html',
   styleUrl: './memes.component.css'
 })
-export class MemesComponent {
+
+export class MemesComponent implements OnInit {
+
+  memes: any[]=[];
+
+  constructor(private memeservice:MemeService){}
+
+  ngOnInit(): void{
+    this.memeservice.getMemes().subscribe({
+      next: (response) => {
+        this.memes = response;
+      }
+    })
+  }
 
 }

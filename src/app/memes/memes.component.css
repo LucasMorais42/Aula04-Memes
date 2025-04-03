@@ -1,0 +1,6 @@
+.text-limit {
+    white-space: nowrap;          /* Impede a quebra de linha */
+    overflow: hidden;            /* Esconde o texto que excede */
+    text-overflow: ellipsis;     /* Adiciona "..." no final */
+    max-width: 200px;           /* Ajuste conforme necessário */
+  }
